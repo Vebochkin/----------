@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 id="appTitle">Sleep Calculator</h1>
+  <label for="bedtime">Enter your bedtime:</label>
+  <input type="time" id="bedtime" name="bedtime">
+  <button onclick="calculateSleep()">Calculate</button>
+  <div id="result"></div>
+  <button onclick="togglePremium()">Premium Version ($0.79)</button>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="script.js"></script>
+  <script>
+    let premiumEnabled = localStorage.getItem('premiumEnabled') === 'true';
+
+    function togglePremium() {
+      premiumEnabled = !premiumEnabled;
+
+      if (premiumEnabled) {
+        openPremiumWindow();
+        localStorage.setItem('premiumEnabled', 'true');
+      } else {
+        localStorage.removeItem('premiumEnabled');
+      }
+    }
+
+    function openPremiumWindow() {
+      window.open('premium.html', 'premiumWindow', 'width=400,height=400');
+    }
+  </script>
+</body>
+</html>
