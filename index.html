@@ -19,11 +19,17 @@
         <option value="150">150 minutes</option>
         <option value="180">180 minutes</option>
       </select>
-      <button class="calculate-button" onclick="calculateSleep()">Расчитать</button>
+      <button class="calculate-button" onclick="calculateSleep()">Calculate</button>
       <div id="result" class="result"></div>
-      <button class="premium-button" onclick="togglePremium()">Premium ($0.79)</button>
+      <button class="premium-button" onclick="togglePremium()">Go Premium ($0.79)</button>
     </div>
   </div>
+
+  <div id="dropin-container"></div>
+  <form id="payment-form" action="/checkout" method="post">
+    <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" />
+    <button type="submit" id="submit-button">Pay</button>
+  </form>
 
   <script src="https://js.braintreegateway.com/web/dropin/1.26.0/js/dropin.min.js"></script>
   <script src="script.js"></script>
