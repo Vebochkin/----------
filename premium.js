@@ -1,36 +1,11 @@
-document.addEventListener('DOMContentLoaded', async function () {
-  const form = document.getElementById('payment-form');
-  const clientToken = await fetch('YOUR_BRAINTREE_CLIENT_TOKEN_ENDPOINT')
-    .then(response => response.json())
-    .then(data => data.clientToken);
+const stripe = Stripe('your_stripe_publishable_key');
 
-  braintree.dropin.create({
-    authorization: clientToken,
-    container: '#dropin-container'
-  }, function (createErr, instance) {
-    if (createErr) {
-      console.error(createErr);
-      return;
-    }
+window.onload = function () {
+  // Проверяем, была ли оплата успешной
+  const urlParams = new URLSearchParams(window.location.search);
+  const success = urlParams.get('success');
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      instance.requestPaymentMethod(function (err, payload) {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log(payload);
-
-          // Отправка информации о платеже на сервер
-          // Здесь вы можете обработать платеж и предоставить доступ к премиум функциям
-        }
-      });
-    });
-  });
-});
-
-function togglePremium() {
-  const premiumContainer = document.querySelector('.premium-container');
-  premiumContainer.style.display = premiumContainer.style.display === 'flex' ? 'none' : 'flex';
-}
+  if (success) {
+    alert('Payment successful!');
+  }
+};

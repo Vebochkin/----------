@@ -10,31 +10,17 @@
   <div class="container">
     <h1 class="app-title">Sleep Calculator</h1>
     <div class="calculator">
-      <label for="wakeTime">Enter your wake-up time:</label>
-      <input type="time" id="wakeTime" name="wakeTime">
-      <label for="sleepCycle">Select your sleep cycle:</label>
-      <select id="sleepCycle" name="sleepCycle">
-        <option value="90">90 minutes</option>
-        <option value="120">120 minutes</option>
-        <option value="150">150 minutes</option>
-        <option value="180">180 minutes</option>
-      </select>
+      <label for="bedtime">Enter your bedtime:</label>
+      <input type="time" id="bedtime" name="bedtime">
       <button class="calculate-button" onclick="calculateSleep()">Calculate</button>
       <div id="result" class="result"></div>
-      <button class="premium-button" onclick="togglePremium()">Go Premium (\$0.79)</button>
+      <button class="premium-button" onclick="goPremium()">Go Premium ($0.79)</button>
     </div>
   </div>
 
-  <div id="dropin-container" class="premium-container" style="display: none;">
-    <form id="payment-form" action="/checkout" method="post">
-      <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" />
-      <button type="submit" id="submit-button">Pay</button>
-    </form>
-  </div>
-
-  <script src="https://js.braintreegateway.com/web/dropin/1.26.0/js/dropin.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="script.js"></script>
-  <script src="premium.js"></script>
 </body>
 </html>
+
 

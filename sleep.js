@@ -1,17 +1,14 @@
-function calculateSleep() {
-  const wakeTime = document.getElementById('wakeTime').value;
-  const sleepCycle = parseInt(document.getElementById('sleepCycle').value);
-  
-  // Рассчет времени засыпания
-  // Здесь можно использовать более сложный алгоритм для расчета сна
-  const bedtime = calculateBedtime(wakeTime, sleepCycle);
+const stripe = Stripe('your_stripe_publishable_key');
 
-  // Отображение результата
-  const resultElement = document.getElementById('result');
-  resultElement.textContent = `Your recommended bedtime is ${bedtime}`;
+function calculateSleep() {
+  // Реализация расчета сна
+  // Вывод результата на страницу
 }
 
-function calculateBedtime(wakeTime, sleepCycle) {
-  // Здесь можно добавить сложный алгоритм для расчета времени засыпания
-  return '10:00 PM';
+function goPremium() {
+  stripe.redirectToCheckout({
+    items: [{sku: 'sku_XXX', quantity: 1}],
+    successUrl: 'https://yourdomain.com/success',
+    cancelUrl: 'https://yourdomain.com/cancel',
+  });
 }
