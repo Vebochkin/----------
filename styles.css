@@ -34,7 +34,7 @@ label {
   margin-bottom: 10px;
 }
 
-input[type="time"] {
+input[type="time"], select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
