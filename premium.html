@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Version</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <h2>Premium Version</h2>
-  <p>Upgrade to Premium to unlock additional features:</p>
-  <ul>
-    <li>Change app theme</li>
-    <li>Customize sleep cycles</li>
-  </ul>
-  <form id="payment-form">
-    <div id="card-element" class="card-element"></div>
-    <button class="payment-button" type="submit">Обновите до Premium ($0.79)</button>
-  </form>
-
-  <!-- PayPal кнопка оплаты -->
-  <div id="paypal-button-container"></div>
-
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="premium.js" defer></script>
-</body>
-</html>
+<div id="dropin-container" class="premium-container" style="display: none;">
+  <div class="premium-form-container">
+    <h2 class="premium-form-title">Go Premium</h2>
+    <p class="premium-form-description">Unlock exclusive features and support the development of this app.</p>
+    <form id="payment-form" action="/checkout" method="post">
+      <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" />
+      <div class="payment-details">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" name="card-number" placeholder="**** **** **** ****">
+        <label for="expiration-date">Expiration Date</label>
+        <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" placeholder="***">
+      </div>
+      <button type="submit" id="submit-button">Pay $0.79</button>
+    </form>
+  </div>
+</div>
