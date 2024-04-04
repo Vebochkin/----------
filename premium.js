@@ -31,5 +31,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function togglePremium() {
-  // Добавьте код для отображения премиум функций или доступа к ним
+  const premiumContainer = document.querySelector('.premium-container');
+  premiumContainer.style.display = premiumContainer.style.display === 'flex' ? 'none' : 'flex';
 }

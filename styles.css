@@ -68,8 +68,21 @@ input[type="time"], select {
 }
 
 /* Добавляем стили для кнопки оплаты */
+.premium-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
 #dropin-container {
-  margin-top: 30px;
+  margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
